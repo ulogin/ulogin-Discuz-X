@@ -1,0 +1,66 @@
+<link type="text/css" rel="stylesheet" href="//ulogin.ru/css/providers.css">
+<script src="//ulogin.ru/js/ulogin.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<style>
+    .syncpage {
+        min-height: 400px;
+        padding-left: 70px;
+    }
+
+    .syncpage h3 {
+        padding: 10px 0;
+    }
+
+    .big_provider {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+</style>
+<div class="syncpage">
+<h3>Синхронизация аккаунтов</h3>
+{$panel}
+<p>Привяжите ваши аккаунты соц. сетей к личному кабинету для быстрой авторизации через любой из них</p>
+<h3>Привязанные аккаунты</h3>
+{$syncpanel}
+<p>Вы можете удалить привязку к аккаунту, кликнув по значку</p>
+</div>
+<script>
+    $(document).ready(function () {
+        var uloginNetwork = $('#ulogin_accounts').find('.ulogin_network');
+        uloginNetwork.click(function () {
+            var network = $(this).attr('data-ulogin-network');
+            var identity = $(this).attr('data-ulogin-identity');
+            var backurl = $(location).attr('href');
+            uloginDeleteAccount(network,identity,backurl);
+        });
+    });
+
+    function uloginDeleteAccount(network,identity,backurl) {
+        var query = $.ajax({
+            type: 'POST',
+            url: $(location).attr('protocol')+'//'+$(location).attr('hostname')+'/token.php',
+            data: {
+                identity: identity,
+                network: network,
+                backurl: backurl
+            },
+            dataType: 'json',
+            error: function (data) {
+                alert('Error');
+            },
+            success: function (data) {
+                if (data.answerType == 'error') {
+                    alert(data.msg);
+                }
+                if (data.answerType == 'ok') {
+                    var accounts = $('#ulogin_accounts'),
+                            nw = accounts.find('[data-ulogin-network=' + network + ']');
+                    if (nw.length > 0) nw.hide();
+                    alert(data.msg);
+                }
+            }
+        });
+        return false;
+    }
+</script>
