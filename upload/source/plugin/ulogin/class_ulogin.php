@@ -5,8 +5,6 @@ require_once './source/function/function_profile.php';
 
 class ulogin {
 
-	private $_error;
-
 	/**
 	 * Обменивает токен на пользовательские данные
 	 *
