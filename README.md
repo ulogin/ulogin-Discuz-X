@@ -1,10 +1,15 @@
 # uLogin
 
 Donate link: http://ulogin.ru
+
 Tags: ulogin, login, social, authorization
+
 Requires at least: X2.5
+
 Tested up to: X3.1
+
 Stable tag: 2.0.
+
 License: GNU General Public License, version 2
 
 **uLogin** — это инструмент, который позволяет пользователям получить единый доступ к различным Интернет-сервисам без необходимости повторной регистрации,
