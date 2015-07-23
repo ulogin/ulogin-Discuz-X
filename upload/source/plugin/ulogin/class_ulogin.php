@@ -77,6 +77,7 @@ class ulogin {
 			if ($strpos)
 			{
 				showmessage('Ошибка работы uLogin. Адрес хоста не совпадает с оригиналом');
+				exit;
 			}
 			switch ($u_user['error'])
 			{
