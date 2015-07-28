@@ -60,6 +60,7 @@ License: GNU General Public License, version 2
 		ulogin::getPanelCode();
 	
 Описание функции:
+
 		/**
 		* @param int $place - указывает, какую форму виджета необходимо выводить (0 - форма входа, 1 - форма синхронизации). Значение по умолчанию = 0
 		* @return string(html)
@@ -67,9 +68,11 @@ License: GNU General Public License, version 2
 		public static function getPanelCode($place = 0)`
 
 Для вывода списка аккаунтов пользователя Discuz используйте класс ulogin функцию getuloginUserAccountsPanel()
+
 		ulogin::getuloginUserAccountsPanel();
 	
 Описание функции:
+
 		/**
 		*
 		* @param int $user_id - ID пользователя (значение по умолчанию = текущий пользователь)
