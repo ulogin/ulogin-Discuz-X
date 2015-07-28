@@ -62,7 +62,8 @@ License: GNU General Public License, version 2
 Описание функции:
 
 		/**
-		* @param int $place - указывает, какую форму виджета необходимо выводить (0 - форма входа, 1 - форма синхронизации). Значение по умолчанию = 0
+		* @param int $place - указывает, какую форму виджета необходимо выводить
+		* (0 - форма входа, 1 - форма синхронизации). Значение по умолчанию = 0
 		* @return string(html)
 		*/
 		public static function getPanelCode($place = 0)`
